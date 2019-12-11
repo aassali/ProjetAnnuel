@@ -1,0 +1,96 @@
+<div class="container row">
+    <div class="col-sm-6">
+        <form [formGroup]="FormRegister" #formDir="ngForm">
+
+            <div [hidden]="formDir.submitted">
+
+              <div class="cross-validation" [class.cross-validation-error]="(FormRegister.touched || FormRegister.dirty)">
+                <div class="form-group row">
+
+                  <label for="email" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input id="email" class="form-control"
+                    formControlName="email"  required      >
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                        class="alert alert-danger">
+
+                      <div *ngIf="email.errors.required">
+                        Le champ email est obligatoire.
+                      </div>
+                      <div *ngIf="email.errors.minlength">
+                        Email must be at least 4 characters long.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <label for="username" class="col-sm-2 col-form-label">Pseudo</label>
+                  <div class="col-sm-10">
+                    <input id="username" class="form-control"
+                    formControlName="username"  required      >
+
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                        class="alert alert-danger">
+
+                      <div *ngIf="username.errors.required">
+                        Le champ email est obligatoire.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="password" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input id="password" type="password" class="form-control"
+                        formControlName="password" required >
+
+                    <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
+                      <div *ngIf="password.errors?.required">
+                        Password n'est pas valable
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="FormRegister.errors?.required  && (FormRegister.touched || FormRegister.dirty)" class="cross-validation-error-message alert alert-danger">
+                    Le nom ou le password n'est pas correct.
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="age" class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-10">
+                  <select id="age" class="form-control"
+                      formControlName="age" required >
+                    <option *ngFor="let item of arrayOne(75); let p = index;" [value]="p">{{p}}</option>
+                  </select>
+
+                  <div *ngIf="age.invalid && age.touched" class="alert alert-danger">
+                    <div *ngIf="age.errors.required">Age est obligatoire.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="identity" class="col-sm-2 col-form-label">Pièce identité</label>
+                <div class="col-sm-10">
+                  <input id="identity" type="file" class="form-control-file"
+                  formControlName="identity" required >
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-default"
+                     [disabled]="FormRegister.invalid">Enregistrer</button>
+              <button type="button" class="btn btn-default"
+                     (click)="formDir.resetForm({})">Annuler</button>
+            </div>
+          </form>
+
+          <div class="submitted-message" *ngIf="formDir.submitted">
+            <p>You've submitted your hero, {{ FormLogin.value.email }}!</p>
+            <button (click)="formDir.resetForm({})">Add new user</button>
+          </div>
+            </div>
+</div>

@@ -1,0 +1,21 @@
+<main>
+    <div class="container row">
+        <div class="col-sm-10">
+            <h1 class="padded text-center">Welcome Bar Cocktail!</h1>
+
+            <div class="text-center padded">
+{{user.firstname}}
+              <ng-container *ngIf="user; else login">
+                    <h2>Welcome {{ user.firstName }}!</h2>
+                  </ng-container>
+                  <ng-template #login>
+                      <button type="button" class="btn btn-default" primary routerLink="/user/login">Se connecter</button>
+                    </ng-template>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</main>

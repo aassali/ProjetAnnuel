@@ -1,0 +1,25 @@
+@import '../../../assets/variables';
+
+span#loader {
+  width: 5vw;
+  height: 5vw;
+  display: block;
+  border-radius: 50%;
+  border: .1rem solid $fb-blue;
+  box-shadow: 0 -2px 3px 1px $fb-green;
+  animation: fbRotate 2s linear infinite;
+  margin: .5rem;
+
+  &.centered {
+    margin: .5rem auto;
+  }
+}
+
+@keyframes fbRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
