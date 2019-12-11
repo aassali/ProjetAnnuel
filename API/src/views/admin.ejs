@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <p>Votre email est <%= admin.email %></p>
+    <% if (admin.firstname) { %>
+      <p>Votre nom est <%= admin.firstname %> <%= admin.lastname %></p>
+    <% } %>
+  </body>
+</html>

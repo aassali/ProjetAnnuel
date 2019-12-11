@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Commande created</h1>
+    <a href="/commandes">Back to commandes</a>
+    <p>L'email est <%= commande.email %></p>
+    <% if (commande.firstname) { %>
+      <p>Le nom est <%= commande.firstname %> <%= commande.lastname %></p>
+    <% } %>
+  </body>
+</html>

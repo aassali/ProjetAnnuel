@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="539.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane prefHeight="472.0" prefWidth="556.0">
+         <children>
+            <Pane fx:id="pane_login" prefHeight="462.0" prefWidth="539.0" visible="false">
+               <children>
+                  <Label layoutX="38.0" layoutY="84.0" text="Mail" />
+                  <Label layoutX="38.0" layoutY="153.0" text="Mot de passe" />
+                  <Button fx:id="btn_login" layoutX="244.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#authentification" text="Se connecter" />
+                  <TextField fx:id="txt_mail" layoutX="147.0" layoutY="80.0" />
+                  <PasswordField layoutX="147.0" layoutY="149.0" />
+               </children></Pane>
+            <TabPane fx:id="pane_menu" onMouseClicked="#menu" prefHeight="462.0" prefWidth="539.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Profil">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="214.0" layoutY="246.0" mnemonicParsing="false" text="Modifier" />
+                              <Button fx:id="btn_logout" layoutX="197.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#logout" text="Se déconnecter" textFill="RED" />
+                              <Label layoutX="70.0" layoutY="49.0" text="Mail" />
+                              <Label layoutX="70.0" layoutY="98.0" text="Nom" />
+                              <Label layoutX="70.0" layoutY="138.0" text="Site" />
+                              <Label layoutX="70.0" layoutY="185.0" text="Label" />
+                              <TextField layoutX="130.0" layoutY="45.0" prefHeight="25.0" prefWidth="231.0" />
+                              <TextField layoutX="130.0" layoutY="94.0" prefHeight="25.0" prefWidth="231.0" />
+                              <TextField layoutX="130.0" layoutY="134.0" prefHeight="25.0" prefWidth="230.0" />
+                              <TextField layoutX="130.0" layoutY="181.0" prefHeight="25.0" prefWidth="230.0" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Carte">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      </content>
+                  </Tab>
+                <Tab text="Commandes">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                  <Tab text="Stock">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView layoutX="10.0" layoutY="20.0" prefHeight="300.0" prefWidth="520.0">
+                                <columns>
+                                  <TableColumn prefWidth="200.0" text="Libelle" />
+                                  <TableColumn prefWidth="130.0" text="Quantité" />
+                                  <TableColumn prefWidth="200.0" text="Action" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

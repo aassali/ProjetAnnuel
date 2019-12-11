@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Cocktail created</h1>
+    <a href="/cocktails">Back to cocktails</a>
+    <p>L'email est <%= cocktail.email %></p>
+    <% if (cocktail.firstname) { %>
+      <p>Le nom est <%= cocktail.firstname %> <%= cocktail.lastname %></p>
+    <% } %>
+  </body>
+</html>

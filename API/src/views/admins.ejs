@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/admins/create">Create a admin</a>
+    <ul>
+      <% admins.forEach(function(admin){ %>
+        <li><%= admin.email %></li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

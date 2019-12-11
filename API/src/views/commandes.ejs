@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/commandes/create">Create a commande</a>
+    <ul>
+      <% commandes.forEach(function(commande){ %>
+        <li><%= commande.email %></li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

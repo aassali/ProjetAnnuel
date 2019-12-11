@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Produit created</h1>
+    <a href="/produits">Back to produits</a>
+    <p>L'email est <%= produit.email %></p>
+    <% if (produit.firstname) { %>
+      <p>Le nom est <%= produit.firstname %> <%= produit.lastname %></p>
+    <% } %>
+  </body>
+</html>

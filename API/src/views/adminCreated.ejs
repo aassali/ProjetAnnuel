@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Admin created</h1>
+    <a href="/admins">Back to admins</a>
+    <p>L'email est <%= admin.email %></p>
+    <% if (admin.firstname) { %>
+      <p>Le nom est <%= admin.firstname %> <%= admin.lastname %></p>
+    <% } %>
+  </body>
+</html>

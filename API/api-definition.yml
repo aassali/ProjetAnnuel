@@ -1,0 +1,692 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Projet Annuel API"
+host: "localhost:3000"
+basePath: "/api"
+schemes:
+- http
+tags:
+- name: Admins
+- name: Bars
+- name: Users
+- name: Commandes
+- name: Cocktails
+- name: Produits
+
+paths:
+  "/admins":
+    post:
+      parameters:
+      - name: admin
+        in: body
+        schema:
+          $ref: '#/definitions/AdminCreation'
+      tags:
+      - Admins
+      summary: "Create a admin"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Admin'
+    get:
+      tags:
+      - Admins
+      parameters:
+      - name: first
+        type: number
+        in: query
+      - name: offset
+        type: number
+        in: query
+      summary: "Find admins"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Admin'
+
+  "/admins/{adminId}":
+    parameters:
+    - name: adminId
+      in: path
+      type: string
+      required: true
+    - name: admin
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/AdminUpdate'
+    get:
+      tags:
+      - Admins
+      summary: "Find a admin by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Admin'
+    delete:
+      tags:
+      - Admins
+      summary: "Delete a admin by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Admin'
+    patch:
+      tags:
+      - Admins
+      summary: "Update a admin by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Admin'
+  "/bars":
+    post:
+      parameters:
+      - name: bar
+        in: body
+        schema:
+          $ref: '#/definitions/BarCreation'
+      tags:
+      - Bars
+      summary: "Create a bar"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Bar'
+    get:
+      tags:
+      - Bars
+      parameters:
+      - name: first
+        type: number
+        in: query
+      - name: offset
+        type: number
+        in: query
+      summary: "Find bars"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Bar'
+
+  "/bars/{barId}":
+    parameters:
+    - name: barId
+      in: path
+      type: string
+      required: true
+    - name: bar
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/BarUpdate'
+    get:
+      tags:
+      - Bars
+      summary: "Find a bar by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Bar'
+    delete:
+      tags:
+      - Bars
+      summary: "Delete a bar by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Bar'
+    patch:
+      tags:
+      - Bars
+      summary: "Update a bar by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Bar'
+  "/users":
+    post:
+      parameters:
+      - name: user
+        in: body
+        schema:
+          $ref: '#/definitions/UserCreation'
+      tags:
+      - Users
+      summary: "Create a user"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+    get:
+      tags:
+      - Users
+      parameters:
+      - name: first
+        type: number
+        in: query
+      - name: offset
+        type: number
+        in: query
+      summary: "Find users"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+
+  "/users/{userId}":
+    parameters:
+    - name: userId
+      in: path
+      type: string
+      required: true
+    - name: user
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/UserUpdate'
+    get:
+      tags:
+      - Users
+      summary: "Find a user by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+    delete:
+      tags:
+      - Users
+      summary: "Delete a user by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+    patch:
+      tags:
+      - Users
+      summary: "Update a user by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+  "/commandes":
+    post:
+      parameters:
+      - name: commande
+        in: body
+        schema:
+          $ref: '#/definitions/CommandeCreation'
+      tags:
+      - Commandes
+      summary: "Create a commande"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Commande'
+    get:
+      tags:
+      - Commandes
+      parameters:
+      - name: first
+        type: number
+        in: query
+      - name: offset
+        type: number
+        in: query
+      summary: "Find commandes"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Commande'
+
+  "/commandes/{commandeId}":
+    parameters:
+    - name: commandeId
+      in: path
+      type: string
+      required: true
+    - name: commande
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/CommandeUpdate'
+    get:
+      tags:
+      - Commandes
+      summary: "Find a commande by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Commande'
+    delete:
+      tags:
+      - Commandes
+      summary: "Delete a commande by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Commande'
+    patch:
+      tags:
+      - Commandes
+      summary: "Update a commande by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Commande'
+  "/cocktails":
+    post:
+      parameters:
+      - name: cocktail
+        in: body
+        schema:
+          $ref: '#/definitions/CocktailCreation'
+      tags:
+      - Cocktails
+      summary: "Create a cocktail"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Cocktail'
+    get:
+      tags:
+      - Cocktails
+      parameters:
+      - name: first
+        type: number
+        in: query
+      - name: offset
+        type: number
+        in: query
+      summary: "Find cocktails"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Cocktail'
+
+  "/cocktails/{cocktailId}":
+    parameters:
+    - name: cocktailId
+      in: path
+      type: string
+      required: true
+    - name: cocktail
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/CocktailUpdate'
+    get:
+      tags:
+      - Cocktails
+      summary: "Find a cocktail by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Cocktail'
+    delete:
+      tags:
+      - Cocktails
+      summary: "Delete a cocktail by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Cocktail'
+    patch:
+      tags:
+      - Cocktails
+      summary: "Update a cocktail by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Cocktail'
+  "/produits":
+    post:
+      parameters:
+      - name: produit
+        in: body
+        schema:
+          $ref: '#/definitions/ProduitCreation'
+      tags:
+      - Produits
+      summary: "Create a produit"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Produit'
+    get:
+      tags:
+      - Produits
+      parameters:
+      - name: first
+        type: number
+        in: query
+      - name: offset
+        type: number
+        in: query
+      summary: "Find produits"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Produit'
+
+  "/produits/{produitId}":
+    parameters:
+    - name: produitId
+      in: path
+      type: string
+      required: true
+    - name: produit
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/ProduitUpdate'
+    get:
+      tags:
+      - Produits
+      summary: "Find a produit by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Produit'
+    delete:
+      tags:
+      - Produits
+      summary: "Delete a produit by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Produit'
+    patch:
+      tags:
+      - Produits
+      summary: "Update a produit by ID"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Produit'
+
+definitions:
+  Admin:
+    type: object
+    properties:
+      "_id":
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      email:
+        type: string
+        format: email
+  AdminCreation:
+    type: object
+    required:
+    - password
+    - email
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  AdminUpdate:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  Bar:
+    type: object
+    properties:
+      "_id":
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      email:
+        type: string
+        format: email
+  BarCreation:
+    type: object
+    required:
+    - password
+    - email
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  BarUpdate:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  User:
+    type: object
+    properties:
+      "_id":
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      email:
+        type: string
+        format: email
+  UserCreation:
+    type: object
+    required:
+    - password
+    - email
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  UserUpdate:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  Commande:
+    type: object
+    properties:
+      "_id":
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      email:
+        type: string
+        format: email
+  CommandeCreation:
+    type: object
+    required:
+    - password
+    - email
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  CommandeUpdate:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  Cocktail:
+    type: object
+    properties:
+      "_id":
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      email:
+        type: string
+        format: email
+  CocktailCreation:
+    type: object
+    required:
+    - password
+    - email
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  CocktailUpdate:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  Produit:
+    type: object
+    properties:
+      "_id":
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      email:
+        type: string
+        format: email
+  ProduitCreation:
+    type: object
+    required:
+    - password
+    - email
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  ProduitUpdate:
+    type: object
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+        format: email
+  NotFound:
+    type: object
+    properties:
+      message:
+        type: string
+      status:
+        type: number
