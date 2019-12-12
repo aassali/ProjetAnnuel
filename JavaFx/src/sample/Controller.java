@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javax.swing.*;
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,10 @@ import java.util.Set;
 public class Controller {
     private Bar bar;
     private String targetURL = "https://projet-annuel-node.herokuapp.com/api/bars";//"http://localhost:3000/api/bars"
+    
+    private ArrayList<Order> orders = new ArrayList<>();
+    private ArrayList<Product> stock = new ArrayList<>();
+    private ArrayList<Drink> carte = new ArrayList<>();
 
     @FXML
     private TextField txt_mail;
@@ -87,6 +92,9 @@ public class Controller {
                 //bar = new Bar();
                 bar = new Bar(reccupInfos);
                 displayInfoBar(bar);
+                orders = getOrders(bar.getId());
+                stock = getStock(bar.getId());
+                carte = getMenu(bar.getId());
                 pane_login.setVisible(false);
                 pane_menu.setVisible(true);
                 System.out.println("CONNEXION");
@@ -96,6 +104,62 @@ public class Controller {
                 JOptionPane.showMessageDialog(null,"Les identifiants renseignés sont incorrects. Veuillez renouvellez l'authentification pour vous connecter.","Identifiants incorrects",0); // .showConfirmDialog(null,Les identifiants renseignés sont incorrects. Veuillez renouvellez l'authentification pour vous connecter.","Identifiants incorrects !",JOptionPane.OK_OPTION,JOptionPane.WARNING_MESSAGE);
             }
         }
+    }
+
+    public ArrayList<Drink> getMenu(String barID) {
+        ArrayList<Drink> carte = new ArrayList<>();
+        
+        return carte;
+    }
+    
+    public ArrayList<Product> getStock(String barID) {
+        ArrayList<Product> stock = new ArrayList<>();
+        String[] reccupStock = new String[0];
+
+        URL url = null;
+        try {
+            url = new URL(targetURL + "/" + bar.getId());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        HttpURLConnection urlConnection = null;
+        try {
+            urlConnection = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            InputStream in = null;
+            try {
+                in = new BufferedInputStream(urlConnection.getInputStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                reccupStock = readStream(in).split(",");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            for (String s : reccupStock) {
+                //System.out.println(s);
+                if(s.contains("stock")){
+                    String[] test = s.split(":");
+                    for(String p : test){
+                        System.out.println(p);
+                    }
+                }
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+        
+        return stock;
+    }
+
+    public ArrayList<Order> getOrders(String barID) {
+        ArrayList<Order> mesCommandes = new ArrayList<>();
+        
+        return mesCommandes;
     }
 
     private void displayInfoBar(Bar bar) {

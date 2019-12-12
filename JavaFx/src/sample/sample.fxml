@@ -7,7 +7,7 @@
    <children>
       <AnchorPane prefHeight="472.0" prefWidth="556.0">
          <children>
-            <Pane fx:id="pane_login" prefHeight="462.0" prefWidth="539.0" visible="false">
+            <Pane fx:id="pane_login" prefHeight="462.0" prefWidth="539.0">
                <children>
                   <Label layoutX="38.0" layoutY="84.0" text="Mail" />
                   <Label layoutX="38.0" layoutY="153.0" text="Mot de passe" />
