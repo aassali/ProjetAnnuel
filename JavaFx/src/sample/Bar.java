@@ -8,6 +8,7 @@ public class Bar {
     private String mail;
     private String nom;
     private String site;
+    private String createDate;
     private ArrayList<Drink> carte;
     private ArrayList<Order> commande;
     private ArrayList<Product> stock;
@@ -16,7 +17,29 @@ public class Bar {
 
     public Bar(String[] infos){
         for (String s: infos) {
-
+            if (s.contains("_id")) {
+                String[] barId = s.split(":");
+                this.setId(barId[1].substring(1, barId[1].length() - 1));
+            }
+            if (s.contains("email")) {
+                String[] barMail = s.split(":");
+                this.setMail(barMail[1].substring(1, barMail[1].length() - 1));
+            }
+            if (s.contains("name")) {
+                String[] barName = s.split(":");
+                this.setNom(barName[1].substring(1, barName[1].length() - 1));
+            }
+            if (s.contains("webSite")) {
+                String[] barSite = s.split(":");
+                this.setSite(barSite[1].substring(1, barSite[1].length() - 1));
+            }
+            if (s.contains("createDate")) {
+                String[] barCreateDate = s.split(":");
+                this.setCreateDate(barCreateDate[1].substring(1, barCreateDate[1].length() - 1));
+            }
+            /*if (s.contains("stock")) {
+                this.setStock();
+            }*/
         }
     }
 
@@ -85,5 +108,13 @@ public class Bar {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 }
